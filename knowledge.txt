@@ -1,0 +1,22 @@
+# Base de conocimiento de ejemplo (negocio ficticio)
+# Reemplaza este archivo con el catálogo, horarios y políticas de tu negocio.
+
+## Negocio
+Panadería La Espiga — pan artesanal y pastelería por encargo.
+
+## Horario
+- Lunes a sábado: 7:00 a 19:00
+- Domingos y festivos: 8:00 a 13:00
+
+## Productos
+- Pan de masa madre (entero, integral, centeno)
+- Croissants y hojaldres
+- Tortas por encargo (mínimo 48 horas de anticipación)
+
+## Pedidos y entregas
+- Pedidos por este chat hasta las 17:00 para entrega al día siguiente
+- Domicilios en un radio de 5 km
+
+## Políticas
+- Las tortas por encargo requieren un anticipo del 50 %
+- Cambios de pedido hasta 24 horas antes de la entrega

@@ -1,0 +1,57 @@
+======================================================
+GUIA DEFINITIVA: CREAR VPS EN ORACLE CLOUD 100% GRATIS
+======================================================
+
+Oracle Cloud ofrece una capa "Always Free" (Siempre Gratis) de por vida, pero hay que tener mucho cuidado al elegir las opciones para no generar cobros. Sigue estos pasos exactos:
+
+--- PASO 1: CREAR LA CUENTA ---
+1. Entra a: https://www.oracle.com/cloud/free/
+2. Haz clic en "Start for free" o "Empieza gratis".
+3. Llena tus datos reales (correo, nombre). 
+4. Te pedirá una tarjeta de crédito/débito. 
+   ⚠️ IMPORTANTE: Es un requisito OBLIGATORIO para verificar que eres un humano real y no un bot creando miles de cuentas. Te harán un cargo temporal de $1 dólar o similar que te reembolsarán inmediatamente. MIENTRAS ELIJAS LAS OPCIONES "ALWAYS FREE ELEGIBLE", NUNCA TE COBRARÁN NADA AL MES.
+5. Elige tu "Home Region" (Región principal). Escoge algo cercano a ti (Ej. US East Ashburn, US West Phoenix, o México si está disponible). Nota: Esta región ya no se podrá cambiar después.
+
+--- PASO 2: CREAR LA MÁQUINA VIRTUAL ---
+1. Una vez dentro de tu panel de Oracle, busca el menú principal (arriba a la izquierda) y ve a:
+   Compute -> Instances -> "Create Instance".
+2. Ponle un nombre: "bot-whatsapp" (o el que quieras).
+
+▶️ SECCIÓN: IMAGE AND SHAPE (COMPUTACIÓN Y SISTEMA)
+Aquí es donde te aseguras de que sea GRATIS.
+
+1. En "Image" (Sistema Operativo): 
+   - Haz clic en Edit/Change Image.
+   - Selecciona "Ubuntu".
+   - Elige la versión "Ubuntu 22.04".
+   - MUY IMPORTANTE: Asegúrate de que abajo del nombre de la imagen salga una etiqueta verde que diga "Always Free Eligible".
+
+2. En "Shape" (Procesador y RAM):
+   - Haz clic en Edit/Change Shape.
+   - Tipo de máquina: Selecciona "Virtual Machine".
+   - Serie: Selecciona "Ampere" (procesadores ARM).
+   - Forma (Shape): Elige "VM.Standard.A1.Flex".
+   - Configura los sliders: OCPU: 1 y Memoria RAM: 6 GB.
+   - MUY IMPORTANTE: Asegúrate de ver la etiqueta verde "Always Free Eligible".
+
+▶️ SECCIÓN: NETWORKING (REDES)
+Déjalo como está por defecto (creará una nueva red VCN y una Subred pública).
+
+▶️ SECCIÓN: ADD SSH KEYS (LLAVES DE ACCESO) ⚠️ ¡PASO CRUECIAL! ⚠️
+Como los servidores en la nube no tienen contraseñas normales por seguridad extrema, se usa un "archivo llave" para entrar.
+1. Selecciona la opción que dice: "Generate a key pair for me" (Generar un par de llaves para mí).
+2. Haz clic en el botón: "Save Private Key" (Guardar llave privada).
+   --> Se descargará un archivo a tu computadora (algo parecido a ssh-key-2026-04-02.key o .pem). 
+   --> ¡GUÁRDALO MUY BIEN! Sin ese archivo, yo no podré entrar al servidor a instalar el bot.
+3. Haz clic en el botón: "Save Public Key" (Guardar llave pública) solo por si acaso y descárgalo también.
+
+--- PASO 3: FINALIZAR ---
+1. Abajo del todo, verifica la sección de Boot Volume. Déjalo en defecto (50 GB). Asegúrate de que siga diciendo "Always Free Eligible".
+2. Haz clic en el botón "Create" (Crear).
+
+3. La pantalla cambiará y verás un cuadro gigante anaranjado que dice "PROVISIONING". 
+4. Espera un par de minutos hasta que el cuadro se ponga VERDE y diga "RUNNING".
+5. A la derecha en esa misma pantalla, verás una sección que dice "Public IP Address O Public IP" con un número (Ejemplo: 129.155.10.50). 
+
+¡LISTO! Cópia esa Dirección IP y avísame diciéndome:
+"Ya lo tengo. La IP es X.X.X.X y ya tengo descargado el archivo Private Key de mi llave SSH".
