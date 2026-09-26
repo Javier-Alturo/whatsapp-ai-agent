@@ -1,40 +1,42 @@
 # WhatsApp AI Agent
 
-Agente conversacional de atención al cliente para WhatsApp. Responde en lenguaje natural usando la base de conocimiento del negocio (`knowledge.txt`), agrupa los mensajes seguidos de un mismo cliente antes de contestar, simula escritura humana y escala a una llamada cuando el cliente describe una necesidad concreta.
+A customer-service agent for WhatsApp. It answers in natural language using the business's knowledge base (`knowledge.txt`), groups a customer's back-to-back messages before replying, types like a person and escalates to a phone call when the customer describes a concrete need.
 
-## Características
+## Features
 
-- **Conexión directa a WhatsApp** con [Baileys](https://github.com/WhiskeySockets/Baileys) (WebSocket, sin navegador ni API oficial de pago). La sesión se guarda en `sessions/` y se reconecta sola.
-- **Respuestas con LLM** vía el SDK de OpenAI (compatible también con proveedores que exponen la misma API).
-- **Base de conocimiento en texto plano:** el contenido de `knowledge.txt` se inyecta en las instrucciones del sistema. Para cambiar lo que sabe el bot, se edita el archivo y se reinicia.
-- **Agrupación de mensajes:** espera unos minutos tras el último mensaje del cliente y responde a todo el bloque junto.
-- **Anti-bloqueo:** cola de envío, retrasos aleatorios, indicador de "escribiendo" y respuestas cortas en texto plano.
-- **Memoria de conversación** por contacto, para no repetir saludos ni perder el hilo.
-- **Varias instancias** con `docker-compose` o PM2 (`INSTANCE_NAME`).
+- **Direct WhatsApp connection** with [Baileys](https://github.com/WhiskeySockets/Baileys) (WebSocket, no browser and no paid official API). The session is saved in `sessions/` and reconnects on its own.
+- **LLM replies** through the OpenAI SDK (also works with any provider that exposes the same API).
+- **Plain-text knowledge base:** the content of `knowledge.txt` goes into the system instructions. To change what the bot knows, edit the file and restart.
+- **Message grouping:** waits a few minutes after the customer's last message and answers the whole block at once.
+- **Anti-ban measures:** send queue, random delays, "typing…" indicator and short plain-text replies.
+- **Conversation memory** per contact, so it doesn't repeat greetings or lose the thread.
+- **Several instances** with `docker-compose` or PM2 (`INSTANCE_NAME`).
 
-## Puesta en marcha
+> **Note:** Baileys is an unofficial WhatsApp client, and WhatsApp can ban numbers that use it. For a real business, use the official [WhatsApp Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api).
+
+## Getting started
 
 ```bash
 npm install
-cp .env.example .env   # pon tu API key, BUSINESS_NAME y BUSINESS_DESCRIPTION
+cp .env.example .env   # add your API key, BUSINESS_NAME and BUSINESS_DESCRIPTION
 npm start
 ```
 
-Escanea el código QR que aparece en la terminal desde WhatsApp → Dispositivos vinculados. Usa un número dedicado al bot, no tu número personal.
+Scan the QR code shown in the terminal from WhatsApp → Linked devices. Use a number dedicated to the bot, not your personal number.
 
-### Con Docker
+### With Docker
 
 ```bash
 docker compose up -d
 docker compose logs -f
 ```
 
-## Personalizar
+## Customize
 
-- `knowledge.txt`: catálogo, horarios y políticas del negocio (el que viene es un ejemplo ficticio).
-- `index.js`: personalidad, reglas y tiempos de espera del agente.
-- `.env`: API key, nombre y descripción del negocio.
+- `knowledge.txt`: the business's catalog, hours and policies (the included one is a fictional example).
+- `index.js`: the agent's personality, rules and wait times.
+- `.env`: API key, business name and description.
 
-## Licencia
+## License
 
 MIT
